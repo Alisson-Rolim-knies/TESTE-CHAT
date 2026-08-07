@@ -2,93 +2,139 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles.css';
 
+const stats = [
+  { value: '120K+', label: 'Interações mensais' },
+  { value: '99.9%', label: 'Uptime visual' },
+  { value: '18ms', label: 'Animações suaves' },
+  { value: 'A+', label: 'Acessibilidade' }
+];
+
 const features = [
   {
-    title: 'Direção visual refinada',
-    text: 'Paleta escura sofisticada, contraste alto, tipografia expressiva e composição com ritmo editorial.'
+    title: 'Glassmorphism com profundidade',
+    text: 'Camadas translúcidas, blur elegante e bordas sutis criam sensação de produto premium sem ruído visual.'
   },
   {
-    title: 'Experiência responsiva',
-    text: 'Layout fluido para celular, tablet e desktop, com espaçamento consistente e leitura confortável.'
+    title: 'Arquitetura componentizada',
+    text: 'Seções modulares, listas derivadas de dados e estrutura limpa para evoluir sem retrabalho.'
   },
   {
-    title: 'Componentes reutilizáveis',
-    text: 'Estrutura modular para facilitar manutenção, evolução do design e novas páginas no futuro.'
+    title: 'Interações refinadas',
+    text: 'Hover states, motion leve e revelação progressiva deixam a navegação mais viva e perceptível.'
   }
 ];
 
-const highlights = [
-  'Landing page moderna',
-  'Seções estratégicas',
-  'CTA claro e objetivo',
-  'Otimizado para Vercel'
+const gallery = [
+  'Painel editorial',
+  'Cards com brilho',
+  'Blocos de conversão',
+  'Camadas de gradiente'
+];
+
+const portfolio = [
+  {
+    title: 'Hero de alto impacto',
+    text: 'Primeira dobra com mensagem clara, CTA duplo e composição que valoriza o produto.'
+  },
+  {
+    title: 'Narrativa de valor',
+    text: 'Seções de recursos, prova social e timeline conduzem o usuário sem fricção.'
+  },
+  {
+    title: 'Responsividade total',
+    text: 'Grid fluido e leitura consistente em celulares, tablets e monitores amplos.'
+  }
+];
+
+const timeline = [
+  'Pesquisa e direção visual',
+  'Arquitetura de conteúdo',
+  'Implementação responsiva',
+  'Refino de UX, SEO e performance'
+];
+
+const testimonials = [
+  {
+    quote: 'Parece um produto de mercado grande. A página transmite confiança imediatamente.',
+    name: 'Head de Produto'
+  },
+  {
+    quote: 'A experiência é limpa, rápida e com acabamento visual acima da média.',
+    name: 'Especialista em UX'
+  }
+];
+
+const faqs = [
+  {
+    question: 'O site está pronto para produção?',
+    answer: 'Sim. A base está preparada para deploy em Vercel ou qualquer hosting compatível com Vite.'
+  },
+  {
+    question: 'Há acessibilidade e SEO básico?',
+    answer: 'Sim. Foram aplicados título, descrição, semântica, contraste e navegação responsiva.'
+  },
+  {
+    question: 'O layout funciona em telas pequenas?',
+    answer: 'Sim. O sistema de grid se adapta para mobile com espaçamento e tipografia ajustados.'
+  }
 ];
 
 function App() {
   return (
-    <div className="page">
-      <header className="hero">
-        <nav className="nav">
-          <div className="brand">
+    <div className="app-shell">
+      <div className="backdrop backdrop-one" />
+      <div className="backdrop backdrop-two" />
+
+      <header className="header">
+        <nav className="nav" aria-label="Principal">
+          <a className="brand" href="#topo" aria-label="TESTE CHAT início">
             <span className="brand-mark" />
-            <span>Atelier Nova</span>
+            <span>TESTE CHAT</span>
+          </a>
+          <div className="menu">
+            <a href="#recursos">Recursos</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#faq">FAQ</a>
           </div>
-          <a className="nav-link" href="#contato">Contato</a>
         </nav>
 
-        <div className="hero-grid">
-          <div>
-            <p className="eyebrow">Design premium • performance • clareza</p>
-            <h1>Um site elegante, moderno e pronto para publicar.</h1>
+        <section className="hero" id="topo">
+          <div className="hero-copy reveal">
+            <p className="eyebrow">Design system • motion leve • experiência premium</p>
+            <h1>Landing page moderna com presença de produto líder de mercado.</h1>
             <p className="lead">
-              Uma landing page de alto padrão visual, com UX limpa, microinterações sutis e arquitetura simples de manter.
+              Uma interface sofisticada com glassmorphism, gradientes, microinterações e arquitetura modular.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#servicos">Explorar recursos</a>
-              <a className="button button-secondary" href="#contato">Falar agora</a>
+              <a className="button button-primary" href="#cta">Começar agora</a>
+              <a className="button button-secondary" href="#recursos">Ver recursos</a>
             </div>
-            <ul className="highlights" aria-label="Destaques do projeto">
-              {highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </div>
 
-          <aside className="hero-card" aria-label="Resumo do projeto">
-            <p className="card-label">Resumo</p>
-            <h2>Layout editorial com energia contemporânea.</h2>
-            <p>
-              Criado para transmitir confiança, sofisticação e foco em conversão sem poluição visual.
-            </p>
-            <div className="stats">
-              <div><strong>100%</strong><span>Responsivo</span></div>
-              <div><strong>0</strong><span>Dependências extras</span></div>
-              <div><strong>Vercel</strong><span>Deploy pronto</span></div>
+          <aside className="hero-card glass reveal" aria-label="Resumo de métricas">
+            <p className="card-kicker">Painel vivo</p>
+            <h2>Converta atenção em confiança.</h2>
+            <div className="stats-grid">
+              {stats.map((item) => (
+                <div className="stat" key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
           </aside>
-        </div>
+        </section>
       </header>
 
       <main>
-        <section className="section" id="sobre">
-          <div className="section-head">
-            <p className="eyebrow">Sobre</p>
-            <h2>Uma base visual forte, sem excesso.</h2>
-          </div>
-          <p className="section-copy">
-            O projeto foi estruturado para funcionar como vitrine profissional: hierarquia clara, blocos bem separados,
-            leitura rápida e visual consistente em qualquer tela.
-          </p>
-        </section>
-
-        <section className="section" id="servicos">
+        <section className="section reveal" aria-labelledby="recursos-title" id="recursos">
           <div className="section-head">
             <p className="eyebrow">Recursos</p>
-            <h2>Componentes pensados para comunicar valor.</h2>
+            <h2 id="recursos-title">Componentes pensados para escala visual e manutenção.</h2>
           </div>
           <div className="feature-grid">
             {features.map((feature) => (
-              <article className="feature-card" key={feature.title}>
+              <article className="feature-card glass" key={feature.title}>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -96,56 +142,113 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="destaques">
+        <section className="section reveal" aria-labelledby="galeria-title">
+          <div className="section-head">
+            <p className="eyebrow">Galeria</p>
+            <h2 id="galeria-title">Sistema visual com camadas, brilho e contraste.</h2>
+          </div>
+          <div className="gallery-grid">
+            {gallery.map((item) => (
+              <div className="gallery-card glass" key={item}>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section reveal" aria-labelledby="portfolio-title" id="portfolio">
           <div className="section-head">
             <p className="eyebrow">Portfólio</p>
-            <h2>Blocos de destaque com acabamento premium.</h2>
+            <h2 id="portfolio-title">Estrutura editorial com narrativa de conversão.</h2>
           </div>
-          <div className="portfolio">
-            <article>
-              <span>01</span>
-              <h3>Hero de impacto</h3>
-              <p>Mensagem direta, CTA visível e primeira dobra com presença.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Seções modulares</h3>
-              <p>Sobre, recursos, prova social e contato organizados com clareza.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Interações sutis</h3>
-              <p>Hover, transições suaves e comportamento amigável ao usuário.</p>
-            </article>
+          <div className="portfolio-grid">
+            {portfolio.map((item, index) => (
+              <article className="portfolio-card glass" key={item.title}>
+                <span className="index">0{index + 1}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="section" id="depoimentos">
+        <section className="section reveal" aria-labelledby="cards-title">
           <div className="section-head">
-            <p className="eyebrow">Prova social</p>
-            <h2>Confiança transmitida de forma objetiva.</h2>
+            <p className="eyebrow">Cards</p>
+            <h2 id="cards-title">Blocos dinâmicos com foco em legibilidade e ritmo.</h2>
           </div>
-          <div className="testimonials">
-            <blockquote>
-              “Visual impecável, navegação fluida e estrutura que já nasce pronta para apresentar um produto sério.”
-              <cite>Direção de produto</cite>
-            </blockquote>
-            <blockquote>
-              “O site parece premium em qualquer tamanho de tela e mantém leitura forte sem esforço.”
-              <cite>UX review</cite>
-            </blockquote>
+          <div className="cards-row">
+            <article className="info-card glass">
+              <h3>Hierarquia forte</h3>
+              <p>Tipografia grande, respiro generoso e CTAs evidentes reduzem atrito.</p>
+            </article>
+            <article className="info-card glass">
+              <h3>Motion sutil</h3>
+              <p>Transitions suaves dão percepção de qualidade sem distrair o conteúdo.</p>
+            </article>
+            <article className="info-card glass">
+              <h3>Dark mode nativo</h3>
+              <p>Paleta escura calibrada para contraste, conforto e estética contemporânea.</p>
+            </article>
           </div>
         </section>
 
-        <section className="section cta" id="contato">
-          <p className="eyebrow">Contato</p>
-          <h2>Pronto para publicar no GitHub e colocar no ar na Vercel.</h2>
-          <p>
-            Estrutura simples, limpa e preparada para evolução futura.
-          </p>
-          <a className="button button-primary" href="mailto:contato@seudominio.com">Iniciar projeto</a>
+        <section className="section reveal" aria-labelledby="timeline-title">
+          <div className="section-head">
+            <p className="eyebrow">Timeline</p>
+            <h2 id="timeline-title">Fluxo de trabalho claro do conceito ao deploy.</h2>
+          </div>
+          <div className="timeline">
+            {timeline.map((step, index) => (
+              <div className="timeline-step glass" key={step}>
+                <span>{index + 1}</span>
+                <p>{step}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section reveal" aria-labelledby="faq-title" id="faq">
+          <div className="section-head">
+            <p className="eyebrow">FAQ</p>
+            <h2 id="faq-title">Respostas diretas para reduzir dúvidas antes da ação.</h2>
+          </div>
+          <div className="faq-list">
+            {faqs.map((faq) => (
+              <details className="faq-item glass" key={faq.question}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="section reveal" aria-labelledby="testimonials-title">
+          <div className="section-head">
+            <p className="eyebrow">Depoimentos</p>
+            <h2 id="testimonials-title">Prova social objetiva e sem exageros.</h2>
+          </div>
+          <div className="testimonials-grid">
+            {testimonials.map((item) => (
+              <blockquote className="testimonial glass" key={item.name}>
+                <p>“{item.quote}”</p>
+                <cite>{item.name}</cite>
+              </blockquote>
+            ))}
+          </div>
+        </section>
+
+        <section className="section cta glass reveal" id="cta" aria-labelledby="cta-title">
+          <p className="eyebrow">CTA</p>
+          <h2 id="cta-title">Pronto para publicar e evoluir com base sólida.</h2>
+          <p>Estrutura limpa, desempenho, SEO básico e visual premium em um único projeto.</p>
+          <a className="button button-primary" href="mailto:contato@seudominio.com">Falar com o projeto</a>
         </section>
       </main>
+
+      <footer className="footer">
+        <p>TESTE CHAT • Landing page premium em React + Vite</p>
+      </footer>
     </div>
   );
 }
